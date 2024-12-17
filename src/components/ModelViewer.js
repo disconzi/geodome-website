@@ -1,22 +1,39 @@
-import React, { useEffect } from 'react';
-import '@google/model-viewer';
+import React, { useEffect, useRef } from 'react';
 
 function ModelViewer({ modelUrl, iosUrl }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const loadModelViewer = async () => {
+      if (!customElements.get('model-viewer')) {
+        const modelViewer = await import('@google/model-viewer/dist/model-viewer');
+        await modelViewer.default.register();
+      }
+    };
+
+    loadModelViewer().catch(console.error);
+  }, []);
+
   return (
-    <div className="w-full h-[400px] relative">
+    <div ref={containerRef} className="w-full h-[400px] relative">
       <model-viewer
         src={modelUrl}
         ios-src={iosUrl}
-        ar
-        ar-modes="webxr scene-viewer quick-look"
+        poster={modelUrl.replace(/\.(glb|gltf)$/, '.png')}
+        alt="3D model"
+        shadow-intensity="1"
         camera-controls
         auto-rotate
+        ar
+        ar-modes="webxr scene-viewer quick-look"
         ar-scale="fixed"
         exposure="0.5"
-        shadow-intensity="1"
         environment-image="neutral"
         style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6' }}
       >
+        <div className="progress-bar hide" slot="progress-bar">
+          <div className="update-bar"></div>
+        </div>
         <button
           slot="ar-button"
           className="absolute bottom-4 right-4 bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-emerald-700 transition-colors flex items-center"
