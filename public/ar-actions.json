@@ -1,0 +1,19 @@
+{
+  "actions": [
+    {
+      "type": "button",
+      "title": "Salvar Localização",
+      "action": "saveLocation",
+      "position": "bottom",
+      "style": {
+        "backgroundColor": "#10b981",
+        "textColor": "#ffffff"
+      }
+    }
+  ],
+  "banner": {
+    "title": "Geodome AR",
+    "imageUrl": "logo.png",
+    "actionButtonTitle": "Compartilhar"
+  }
+}

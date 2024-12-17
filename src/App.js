@@ -2,11 +2,13 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import DomeSection from './components/DomeSection';
 import Features from './components/Features';
 import MorphingGeometry from './components/MorphingGeometry';
 import AssemblySteps from './components/AssemblySteps';
 import Contact from './components/Contact';
 import ModelViewer from './components/ModelViewer';
+import ARViewer from './components/ARViewer';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
               <Header />
               <main>
                 <Hero />
+                <DomeSection />
                 <Features />
                 <section className="py-20">
                   <div className="container mx-auto px-4">
@@ -34,6 +37,7 @@ function App() {
           </div>
         } />
         <Route path="/3d-view" element={<ModelViewer />} />
+        <Route path="/ar-view/:modelId?" element={<ARViewer />} />
       </Routes>
     </Router>
   );
