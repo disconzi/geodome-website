@@ -12,7 +12,18 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
     {
       "src": "/api/(.*)",
       "dest": "/api/$1"
