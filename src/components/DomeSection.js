@@ -8,11 +8,38 @@ const domeOptions = [
     id: 'dome1',
     name: 'Geodome Flat Pack',
     description: 'Nossa casa geodésica pré-fabricada combina design escandinavo, montagem simples e conforto premium.',
-    image: '/images/dome1.jpg',
-    modelFileWeb: '/models/dome1.glb',
-    modelFileIos: '/models/dome1.usdz',
+    image: '/images/domes/dome-night.jpg',
+    modelFileWeb: '/models/basic-geodome.glb',
+    modelFileIos: '/models/geodome-classic.usdz',
+    price: '9999.99'
   },
-  // Add more dome options as needed
+  {
+    id: 'dome2',
+    name: 'Geodome Plus',
+    description: 'Versão ampliada com área de convivência integrada e acabamentos premium.',
+    image: '/images/domes/snowdon-dome.jpg',
+    modelFileWeb: '/models/woodframe-geodome-15m.glb',
+    modelFileIos: '/models/geodome-compact.usdz',
+    price: '12999.99'
+  },
+  {
+    id: 'dome3',
+    name: 'Geodome Studio',
+    description: 'Modelo compacto ideal para escritório ou estúdio, com design moderno e funcional.',
+    image: '/images/domes/Article-59-1-Zome-1-1024x768.jpg',
+    modelFileWeb: '/models/zomepod.glb',
+    modelFileIos: '/models/ZomePod.usdz',
+    price: '7999.99'
+  },
+  {
+    id: 'dome4',
+    name: 'Geodome Family',
+    description: 'Nossa maior opção, perfeita para famílias, com múltiplos ambientes e área de lazer.',
+    image: '/images/domes/Anthony-Hodson-Dzome-Geodesic-Pod-Home-Office.jpg',
+    modelFileWeb: '/models/large-geodome-15m.glb',
+    modelFileIos: '/models/geodome-classic.usdz',
+    price: '15999.99'
+  }
 ];
 
 const domeCharacteristics = [
@@ -174,13 +201,20 @@ function DomeSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
               <div className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
                 {show3DModel ? (
-                  <ModelViewer modelUrl={`${window.location.origin}${selectedDome.modelFileWeb}`} />
+                  <ModelViewer 
+                    modelUrl={selectedDome.modelFileWeb} 
+                    iosUrl={selectedDome.modelFileIos}
+                  />
                 ) : (
                   <>
                     <img
                       src={selectedDome.image}
                       alt={selectedDome.name}
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/placeholder-dome.jpg';
+                      }}
                     />
                     <div 
                       onClick={() => setShowPaymentModal(true)}
@@ -197,7 +231,7 @@ function DomeSection() {
                     className="bg-gray-800 hover:bg-gray-900 text-white py-1.5 px-3 rounded-lg text-sm font-medium transition-colors flex items-center justify-center"
                   >
                     <svg className="h-4 w-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2-1M4 7l2-1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
                     </svg>
                     {show3DModel ? 'Ver Foto' : 'Ver em 3D'}
                   </button>
@@ -246,11 +280,11 @@ function DomeSection() {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <div className="flex justify-between mb-2">
                   <span>Valor Original:</span>
-                  <span className="line-through">R$ 14.999,99</span>
+                  <span className="line-through">R$ {selectedDome.price}</span>
                 </div>
                 <div className="flex justify-between text-lg font-semibold">
                   <span>Valor com Desconto:</span>
-                  <span className="text-emerald-600">R$ 9.999,99</span>
+                  <span className="text-emerald-600">R$ {(selectedDome.price * 0.7).toFixed(2)}</span>
                 </div>
               </div>
 
