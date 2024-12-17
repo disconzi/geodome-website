@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@google/model-viewer": "^4.0.0",
     "@react-three/drei": "^9.120.4",
     "@react-three/fiber": "^8.17.10",
     "@react-three/gltfjsx": "^4.3.4",
@@ -21,7 +20,7 @@
     "react-scripts": "5.0.1",
     "serve": "^14.2.1",
     "tailwindcss": "^3.4.0",
-    "three": "^0.169.0",
+    "three": "^0.163.0",
     "three-stdlib": "^2.35.2",
     "uuid": "^11.0.3"
   },
@@ -31,9 +30,6 @@
     "@types/react-dom": "^18.2.0",
     "@types/three": "^0.160.0",
     "typescript": "^5.3.3"
-  },
-  "overrides": {
-    "three": "^0.169.0"
   },
   "scripts": {
     "start": "HOST=0.0.0.0 react-scripts start",
