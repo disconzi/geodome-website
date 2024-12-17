@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M100 40 L160 140 L40 140 Z" stroke="#2d4acb" stroke-width="4" fill="#2d4acb20"/>
+  <path d="M100 40 L100 140" stroke="#2d4acb" stroke-width="2"/>
+  <path d="M70 90 L130 90" stroke="#2d4acb" stroke-width="2"/>
+  <circle cx="100" cy="40" r="5" fill="#2d4acb"/>
+  <circle cx="160" cy="140" r="5" fill="#2d4acb"/>
+  <circle cx="40" cy="140" r="5" fill="#2d4acb"/>
+</svg>

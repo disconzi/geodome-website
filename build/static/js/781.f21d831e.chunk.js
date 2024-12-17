@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgeodome_website=self.webpackChunkgeodome_website||[]).push([[781],{781:(e,s,t)=>{t.r(s),t.d(s,{default:()=>i});t(43);var o=t(519),c=t(579);const i=function(e){let{url:s}=e;const{scene:t}=(0,o.p)(s);return(0,c.jsx)("primitive",{object:t,scale:1,position:[0,0,0],castShadow:!0,receiveShadow:!0})}}}]);
+//# sourceMappingURL=781.f21d831e.chunk.js.map
